@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+/* Styles de base pour mobile-first */
+:root {
+  --app-height: 100%;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+  height: var(--app-height);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Désactiver le zoom sur double-tap pour iOS */
+input, button, select, textarea {
+  font-size: 16px; /* Prévient le zoom sur iOS */
+}
+
+/* Mobile container */
+.mobile-container {
+  max-width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+  height: 100%;
+}
+
