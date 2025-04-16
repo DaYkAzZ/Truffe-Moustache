@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Components from "./components/components";
 
 export default function page() {
   return (
