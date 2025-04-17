@@ -17,13 +17,17 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          rel="shortcut icon"
+          href="/images/brand/logo.png"
+          type="image/x-icon"
+        />
+        <title>Truffe et Moustache</title>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} max-w-md mx-auto`}
       >
-        <FavoritesProvider>
-          {children}
-        </FavoritesProvider>
+        <FavoritesProvider>{children}</FavoritesProvider>
       </body>
     </html>
   );

@@ -148,7 +148,7 @@ export default function TruffePopUp({ onClose, onResult }) {
               <div>
                 <button
                   type="submit"
-                  className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-blue-300 flex items-center justify-center min-w-[40px]"
+                  className="p-2 bg-[#FFBC11] text-white rounded-lg disabled:bg-[#FFBC11] flex items-center justify-center min-w-[40px]"
                   disabled={isLoading || !prompt.trim()}
                 >
                   {isLoading ? (
@@ -167,7 +167,8 @@ export default function TruffePopUp({ onClose, onResult }) {
                   {[
                     "Je cherche un chat roux",
                     "Un chien pour appartement",
-                    "Un reptile facile à entretenir",
+                    "Un reptile discret",
+                    "Je veux un chien de petite taille",
                   ].map((example) => (
                     <button
                       key={example}
