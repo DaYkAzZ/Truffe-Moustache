@@ -45,15 +45,15 @@ const ProductDescription = ({ category, id }) => {
       {/* Description avec un margin-top bien séparé */}
       <div className='flex items-center'>
         <div className='bg-[rgba(255,188,17,0.1)] w-[100px] h-[80px] rounded-xl flex flex-col justify-center items-center mx-auto'>
-          <span className='text-[#5F5F63]'>Poids</span>
-          <p className='text-[#FFBC11]'>{animal.poids}</p>
+          <span className='text-[#5F5F63] font-semibold'>Poids</span>
+          <p className='text-[#FFBC11]'>{animal.poids} Kg</p>
         </div>
         <div className='bg-[rgba(255,188,17,0.1)] w-[100px] h-[80px] rounded-xl flex flex-col justify-center items-center mx-auto'>
-          <span className='text-[#5F5F63]'>Gabarit</span>
+          <span className='text-[#5F5F63] font-semibold'>Gabarit</span>
           <p className='text-[#FFBC11]'>{animal.gabarit}</p>
         </div>
         <div className='bg-[rgba(255,188,17,0.1)] w-[100px] h-[80px] rounded-xl flex flex-col justify-center items-center mx-auto'>
-          <span className='text-[#5F5F63]'>Couleur</span>
+          <span className='text-[#5F5F63] font-semibold'>Couleur</span>
           <p className='text-[#FFBC11]'>{animal.couleur}</p>
         </div>
       </div>
@@ -63,12 +63,33 @@ const ProductDescription = ({ category, id }) => {
           <img src="/images/icons/pet.svg" alt="pet" />
         </div>
         <div>
-          <p className='px-4'>à propos de {animal.name}</p>
+          <p className='px-4 font-semibold text-lg'>à propos de {animal.name}</p>
         </div>
       </div>
-      <p className="text-[#a1a1a1] text-xs px-4 mt-8">{animal.description}</p>
+      <p className="text-[#a1a1a1] px-4 mt-8 font-semibold text-base text-lg">{animal.description}</p>
 
-      <iframe className='w-[350px] h-[500px]' src="https://calendly.com/m_rannou4-etu-webschoolfactory/30min"></iframe>
+      {/* Comportement */}
+      <div className='flex px-4 mt-8'>
+        <div>
+          <img src="/images/icons/comportement.svg" alt="pet" />
+        </div>
+        <div>
+          <span className='px-4 font-semibold text-lg mt-8'>Son comportement</span>
+      </div>
+      </div>
+      <div className=" ml-4 inline-flex items-center justify-center p-4 h-[50px] rounded-full border border-[#FFBC11] bg-white text-black mt-15">
+        <span className="text-lg">{animal.sociabilite}</span>
+      </div>
+
+
+
+      {/* Calendly */}
+      <div className="flex justify-center w-full mt-15">
+        <iframe 
+          className="w-[350px] h-[500px]" 
+          src="https://calendly.com/m_rannou4-etu-webschoolfactory/30min"
+        ></iframe>
+      </div>
 
     </div>
   );
