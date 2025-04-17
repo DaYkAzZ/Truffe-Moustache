@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import TruffePopUp from "./TruffePopUp";
 
-export default function TruffePastille() {
+export default function TruffePastille({ onOpen, onResult }) {
   const [popUp, setPopUp] = useState(false);
 
   const handleClose = () => {
@@ -16,7 +16,10 @@ export default function TruffePastille() {
       {!popUp ? (
         <div className="fixed bottom-20 right-2 z-40">
           <button
-            onClick={() => setPopUp(true)}
+            onClick={() => {
+              setPopUp(true);
+              if (onOpen) onOpen();
+            }}
             className="bg-white rounded-full border-2 border-purple-500 p-1 shadow-lg hover:scale-105 transition-transform"
           >
             <Image
@@ -29,7 +32,7 @@ export default function TruffePastille() {
           </button>
         </div>
       ) : (
-        <TruffePopUp onClose={handleClose} />
+        <TruffePopUp onClose={handleClose} onResult={onResult} />
       )}
     </>
   );

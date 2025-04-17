@@ -3,9 +3,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import data from "../../../data/data.json";
 
-export default function TruffePopUp({ onClose }) {
+export default function TruffePopUp({ onClose, onResult }) {
   const [isPopUpVisible, setPopUpVisible] = useState(true);
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
@@ -18,69 +17,38 @@ export default function TruffePopUp({ onClose }) {
 
     setIsLoading(true);
     try {
-      const userQuery = prompt.toLowerCase();
-      const wantsDog = userQuery.includes("chien");
-      const wantsCat = userQuery.includes("chat");
-      const wantsSmallAnimal =
-        userQuery.includes("rongeur") ||
-        userQuery.includes("hamster") ||
-        userQuery.includes("souris");
-      const wantsReptile =
-        userQuery.includes("reptile") ||
-        userQuery.includes("serpent") ||
-        userQuery.includes("lézard");
-
-      const colorMatch =
-        userQuery.match(/blanc|noir|gris|roux|brun|tricolore|doré/g) || [];
-      const ageMatch = userQuery.match(/(\d+)\s*ans/) || [];
-      const maxAge = ageMatch[1] ? parseInt(ageMatch[1]) : 999;
-      const inApartment = userQuery.includes("appartement");
-
-      let allAnimals = [];
-      if (wantsDog) allAnimals = allAnimals.concat(data.Chiens || []);
-      if (wantsCat) allAnimals = allAnimals.concat(data.Chats || []);
-      if (wantsSmallAnimal) allAnimals = allAnimals.concat(data.Rongeurs || []);
-      if (wantsReptile) allAnimals = allAnimals.concat(data.Reptiles || []);
-
-      if (allAnimals.length === 0) {
-        allAnimals = [
-          ...(data.Chiens || []),
-          ...(data.Chats || []),
-          ...(data.Rongeurs || []),
-          ...(data.Reptiles || []),
-        ];
-      }
-
-      const filtered = allAnimals.filter((animal) => {
-        if (animal.age > maxAge) return false;
-
-        if (
-          colorMatch.length > 0 &&
-          !colorMatch.some((color) =>
-            animal.couleur.toLowerCase().includes(color)
-          )
-        ) {
-          return false;
-        }
-
-        if (inApartment && animal.gabarit === "grand") return false;
-
-        return true;
+      // Appel à l'API Wit.ai via notre route d'API
+      const res = await fetch("../../../api/witai", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: prompt }),
       });
 
-      setMatchingAnimals(filtered);
+      if (!res.ok) {
+        throw new Error(`Erreur API: ${res.status}`);
+      }
 
-      if (filtered.length > 0) {
-        setResponse(
-          `J'ai trouvé ${filtered.length} animal(aux) qui correspondent à vos critères !`
-        );
-      } else {
-        setResponse(
-          "Je n'ai pas trouvé d'animaux correspondant exactement à tous vos critères. Peut-être pourriez-vous assouplir certains critères ?"
-        );
+      const data = await res.json();
+
+      // Utiliser la réponse et les animaux correspondants de Wit.ai
+      setResponse(data.response);
+      const animals = data.animals || [];
+      setMatchingAnimals(animals);
+
+      // Transmettre les animaux au composant parent
+      if (onResult && animals.length > 0) {
+        onResult(animals);
+
+        // Fermer automatiquement la popup avec un délai pour montrer les résultats
+        setTimeout(() => {
+          setPopUpVisible(false);
+          if (onClose) onClose();
+        }, 2000); // 2 secondes de délai pour voir le nombre d'animaux trouvés et apprécier l'animation
       }
     } catch (error) {
-      console.error("Error processing request:", error);
+      console.error("Erreur lors de l'appel à Wit.ai:", error);
       setResponse(
         "Désolé, une erreur s'est produite lors de l'analyse de votre demande."
       );
@@ -113,7 +81,12 @@ export default function TruffePopUp({ onClose }) {
             initial={{ y: "100%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "100%", opacity: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            transition={{
+              type: "spring",
+              stiffness: 200,
+              damping: 25,
+              duration: 0.8,
+            }}
           >
             <button
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
@@ -130,42 +103,20 @@ export default function TruffePopUp({ onClose }) {
                 alt="truffe icon"
               />
               <p className="mt-4 text-center text-gray-700">
-                Bienvenue sur Truffe AI ! Décrivez vos critères ci-dessous.
+                Bonjour ! Je suis Truffe, votre assistant pour trouver le
+                compagnon idéal. Comment puis-je vous aider ?
               </p>
             </div>
 
             {response && (
               <div className="mt-4 p-3 bg-gray-100 rounded-lg">
-                <p className="text-gray-800">{response}</p>
-
                 {matchingAnimals.length > 0 && (
                   <div className="mt-3">
-                    <h3 className="font-bold">Animaux suggérés:</h3>
-                    <ul className="mt-2 space-y-2">
-                      {matchingAnimals.slice(0, 3).map((animal) => (
-                        <li
-                          key={animal.id}
-                          className="p-2 bg-white rounded border border-gray-200"
-                        >
-                          <div className="font-semibold">{animal.name}</div>
-                          <div className="text-sm text-gray-600">
-                            {animal.race}, {animal.age} ans, {animal.couleur}
-                          </div>
-                          <div className="text-xs mt-1 italic">
-                            {animal.description
-                              ? animal.description.substring(0, 70)
-                              : "Aucune description disponible"}
-                            ...
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                    {matchingAnimals.length > 3 && (
-                      <p className="text-sm text-gray-500 mt-2">
-                        + {matchingAnimals.length - 3} autres animaux
-                        correspondants
-                      </p>
-                    )}
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-bold">
+                        Animaux trouvés: {matchingAnimals.length}
+                      </h3>
+                    </div>
                   </div>
                 )}
               </div>
@@ -175,26 +126,60 @@ export default function TruffePopUp({ onClose }) {
               onSubmit={handleSubmit}
               className="flex items-center justify-between mt-6"
             >
-              <div className="flex-grow mr-2">
+              <div className="flex-grow mr-2 relative">
                 <input
                   type="text"
-                  className="w-full p-2 bg-gray-200 rounded-lg"
-                  placeholder="Waf waf critères ?"
+                  className="w-full p-2 bg-gray-200 rounded-lg pr-8"
+                  placeholder="Décrivez l'animal que vous recherchez..."
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
                   disabled={isLoading}
                 />
+                {prompt && (
+                  <button
+                    type="button"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500"
+                    onClick={() => setPrompt("")}
+                  >
+                    ✕
+                  </button>
+                )}
               </div>
               <div>
                 <button
                   type="submit"
-                  className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-blue-300"
+                  className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-blue-300 flex items-center justify-center min-w-[40px]"
                   disabled={isLoading || !prompt.trim()}
                 >
-                  {isLoading ? "..." : "→"}
+                  {isLoading ? (
+                    <span className="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                  ) : (
+                    "→"
+                  )}
                 </button>
               </div>
             </form>
+
+            {!response && (
+              <div className="mt-4 text-gray-500 text-sm">
+                <p className="font-medium">Exemples :</p>
+                <div className="mt-1 flex flex-wrap gap-2">
+                  {[
+                    "Je cherche un chat roux",
+                    "Un chien pour appartement",
+                    "Un reptile facile à entretenir",
+                  ].map((example) => (
+                    <button
+                      key={example}
+                      className="px-2 py-1 bg-gray-100 rounded-full text-xs hover:bg-gray-200"
+                      onClick={() => setPrompt(example)}
+                    >
+                      {example}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </motion.div>
         </div>
       )}

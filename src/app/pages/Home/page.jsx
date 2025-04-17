@@ -6,21 +6,24 @@ import AnimalFilterBar from "@/app/components/ui/AnimalFilter";
 import React, { useState } from "react";
 import Image from "next/image";
 import TruffePastille from "@/app/components/ui/truffeAI/TruffePastille";
-import TruffePopUp from "@/app/components/ui/truffeAI/TruffePopUp";
+// TruffePopUp est maintenant géré par TruffePastille
 import AnimalCard from "@/app/components/ui/AnimalCard";
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [filteredAnimals, setFilteredAnimals] = useState(null);
   const [isTruffeOpen, setIsTruffeOpen] = useState(false);
+  const [truffeResults, setTruffeResults] = useState(null);
 
   const handleSelectCategory = (category) => {
     setSelectedCategory(category);
     setFilteredAnimals(null); // reset si clic sur filtre
+    setTruffeResults(null); // réinitialiser les résultats de Truffe
   };
 
   const handleTruffeResult = (animals) => {
     setFilteredAnimals(animals);
+    setTruffeResults("Résultats de Truffe AI");
     setIsTruffeOpen(false);
   };
 
@@ -50,7 +53,7 @@ export default function Home() {
       <div className="mb-4">
         <h2 className="text-lg font-semibold">
           {filteredAnimals
-            ? `Résultats Truffe AI (${filteredAnimals.length})`
+            ? `${truffeResults || "Animaux filtrés"} (${filteredAnimals.length})`
             : selectedCategory
             ? `Découvrez nos ${selectedCategory.toLowerCase()}`
             : "Ils ont besoin de vous"}
@@ -67,17 +70,14 @@ export default function Home() {
 
       {/* FOOTER */}
       <div className="mb-20">
-        <TruffePastille onOpen={() => setIsTruffeOpen(true)} />
+        <TruffePastille 
+          onOpen={() => setIsTruffeOpen(true)} 
+          onResult={handleTruffeResult} 
+        />
         <Navbar />
       </div>
 
-      {/* POPUP TRUFFE */}
-      {isTruffeOpen && (
-        <TruffePopUp
-          onClose={() => setIsTruffeOpen(false)}
-          onResult={handleTruffeResult}
-        />
-      )}
+      {/* Nous n'avons plus besoin du popup ici car il est géré par TruffePastille */}
     </div>
   );
 }
