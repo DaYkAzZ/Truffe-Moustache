@@ -1,12 +1,7 @@
-// HOME
-import Link from "next/link";
-import React from "react";
+"use client";
+import { redirect } from "next/navigation";
 
 export default function page() {
-  return (
-    <div className="text-black">
-      <h1>Onboarding</h1>
-      <Link href="/pages/Home">Home</Link>
-    </div>
-  );
+  redirect("/pages/Home");
+  return null; // Pas besoin de contenu, car on redirige immédiatement
 }

@@ -17,7 +17,7 @@ export default function FilterBar() {
         Gabarie
       </div>
       <div className="rounded-3xl border-gray-400 border-1 p-2 m-1">Âge</div>
-      <div className="rounded-3xl border-gray-400 border-1 p-2 m-1">Refuge</div>
+      <div className="rounded-3xl border-gray-400 border-1 p-2 m-1">Sexe</div>
     </div>
   );
 }
