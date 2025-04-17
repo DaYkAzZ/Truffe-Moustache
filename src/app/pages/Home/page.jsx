@@ -1,8 +1,9 @@
 "use client";
 
 import Navbar from "@/app/components/navigation/Navbar";
-import FilterBar from "@/app/components/ui/FilterBar";
-import AnimalFilterBar from "@/app/components/ui/AnimalFilter";
+import FilterBar from "@/app/components/ui/filters/FilterBar";
+import FilterCard from "@/app/components/ui/filters/FilterCard";
+import AnimalFilterBar from "@/app/components/ui/filters/AnimalFilter";
 import React, { useState } from "react";
 import Image from "next/image";
 import TruffePastille from "@/app/components/ui/truffeAI/TruffePastille";
@@ -40,9 +41,13 @@ export default function Home() {
         />
       </div>
 
-      {/* FILTRES */}
-      <div className="flex flex-col">
+      {/* Filtres */}
+      <div className="sticky top-0">
         <FilterBar />
+      </div>
+
+      {/* Animal FILTRES */}
+      <div className="flex flex-col">
         <AnimalFilterBar
           selectedCategory={selectedCategory}
           onSelectCategory={handleSelectCategory}
@@ -53,7 +58,9 @@ export default function Home() {
       <div className="mb-4">
         <h2 className="text-lg font-semibold">
           {filteredAnimals
-            ? `${truffeResults || "Animaux filtrés"} (${filteredAnimals.length})`
+            ? `${truffeResults || "Animaux filtrés"} (${
+                filteredAnimals.length
+              })`
             : selectedCategory
             ? `Découvrez nos ${selectedCategory.toLowerCase()}`
             : "Ils ont besoin de vous"}
@@ -70,14 +77,15 @@ export default function Home() {
 
       {/* FOOTER */}
       <div className="mb-20">
-        <TruffePastille 
-          onOpen={() => setIsTruffeOpen(true)} 
-          onResult={handleTruffeResult} 
+        <TruffePastille
+          onOpen={() => setIsTruffeOpen(true)}
+          onResult={handleTruffeResult}
         />
         <Navbar />
       </div>
 
-      {/* Nous n'avons plus besoin du popup ici car il est géré par TruffePastille */}
+      {/* Popup de filtres */}
+      <FilterCard />
     </div>
   );
 }
