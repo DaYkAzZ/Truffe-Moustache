@@ -9,7 +9,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <div className="bg-white shadow-md sticky bottom-0 p-5">
+    <div className="bg-white fixed bottom-0 left-0 w-screen p-5">
       <div className="flex flex-row justify-center items-center">
         <div className="mx-8">
           <Link href="/pages/Home">

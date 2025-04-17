@@ -11,13 +11,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "Truffe Moustache",
-  description: "Application mobile Truffe Moustache",
-  viewport:
-    "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -25,7 +18,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} max-w-md mx-auto antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} max-w-md mx-auto`}
       >
         {children}
       </body>
