@@ -7,7 +7,7 @@ import AnimalFilterBar from "@/app/components/ui/filters/AnimalFilter";
 import React, { useState } from "react";
 import Image from "next/image";
 import TruffePastille from "@/app/components/ui/truffeAI/TruffePastille";
-// TruffePopUp est maintenant géré par TruffePastille
+import { motion } from "framer-motion";
 import AnimalCard from "@/app/components/ui/AnimalCard";
 
 export default function Home() {
@@ -29,9 +29,19 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen mx-5 pb-20 overflow-scroll">
+    <motion.div
+      className="flex flex-col min-h-screen mx-5 pb-20 overflow-scroll"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2 }}
+    >
       {/* HEADER */}
-      <div className="flex items-center justify-between my-6">
+      <motion.div
+        className="flex items-center justify-between my-6"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.2 }}
+      >
         <h1 className="text-3xl font-bold">J'adopte un compagnon</h1>
         <Image
           src="/images/brand/logo.png"
@@ -39,23 +49,38 @@ export default function Home() {
           height={50}
           alt="Pets print"
         />
-      </div>
+      </motion.div>
 
       {/* Filtres */}
-      <div className="sticky top-0">
+      <motion.div
+        className="sticky top-0"
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.2, delay: 0.2 }}
+      >
         <FilterBar />
-      </div>
+      </motion.div>
 
       {/* Animal FILTRES */}
-      <div className="flex flex-col">
+      <motion.div
+        className="flex flex-col"
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.2, delay: 0.3 }}
+      >
         <AnimalFilterBar
           selectedCategory={selectedCategory}
           onSelectCategory={handleSelectCategory}
         />
-      </div>
+      </motion.div>
 
       {/* TITRE */}
-      <div className="mb-4">
+      <motion.div
+        className="mb-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2, delay: 0.4 }}
+      >
         <h2 className="text-lg font-semibold">
           {filteredAnimals
             ? `${truffeResults || "Animaux filtrés"} (${
@@ -65,27 +90,43 @@ export default function Home() {
             ? `Découvrez nos ${selectedCategory.toLowerCase()}`
             : "Ils ont besoin de vous"}
         </h2>
-      </div>
+      </motion.div>
 
       {/* ANIMAUX */}
-      <div className="flex-grow">
+      <motion.div
+        className="flex-grow"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.2, delay: 0.5 }}
+      >
         <AnimalCard
           selectedCategory={selectedCategory}
           filteredAnimals={filteredAnimals}
         />
-      </div>
+      </motion.div>
 
       {/* FOOTER */}
-      <div className="mb-20">
+      <motion.div
+        className="mb-20"
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.2, delay: 0.6 }}
+      >
         <TruffePastille
           onOpen={() => setIsTruffeOpen(true)}
           onResult={handleTruffeResult}
         />
-        <Navbar />
-      </div>
+      </motion.div>
+      <Navbar />
 
       {/* Popup de filtres */}
-      <FilterCard />
-    </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2, delay: 0.7 }}
+      >
+        <FilterCard />
+      </motion.div>
+    </motion.div>
   );
 }

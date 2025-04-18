@@ -11,7 +11,7 @@ export default function Navbar() {
 
   return (
     <motion.div
-      className="bg-white fixed bottom-0 left-0 w-screen p-5 shadow-lg"
+      className="bg-white fixed bottom-0 left-0 w-screen p-5 border-t-2 border-[#FFBC11] rounded-t-3xl z-50"
       initial={{ y: 100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 20 }}

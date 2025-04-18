@@ -96,7 +96,12 @@ export default function FilterCard() {
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+              duration: 0.5,
+            }}
             className="bg-white rounded-t-3xl w-full h-2/3 overflow-hidden flex flex-col"
           >
             {/* Header de la popup */}
@@ -173,7 +178,7 @@ export default function FilterCard() {
                     : "bg-gray-100"
                 }`}
               >
-                Gabarie
+                Gabarit
               </button>
             </div>
 
