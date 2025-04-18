@@ -18,9 +18,9 @@ export default function AnimalCard({
   } else if (filteredAnimals) {
     animals = filteredAnimals;
   } else if (!selectedCategory) {
-    // Mode "Tous" - prendre le premier animal de chaque catégorie
-    const categories = ["Chiens", "Chats", "Rongeurs", "Reptiles"];
-    animals = categories.map((category) => data[category]?.[0]).filter(Boolean); // Supprimer les catégories vides
+    // Mode "Tous" - prendre tous les animaux de toutes les catégories
+    const categories = ["Chiens", "Chats", "Rongeur", "Reptiles"];
+    animals = categories.flatMap((category) => data[category] || []); // Combiner tous les animaux de toutes les catégories
   } else {
     animals = data[selectedCategory] || [];
   }
