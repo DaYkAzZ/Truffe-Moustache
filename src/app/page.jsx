@@ -6,7 +6,9 @@ export default function page() {
   return (
     <div className="text-black">
       <h1>Onboarding</h1>
-      <Link href="/pages/Home">Home</Link>
+      <Link href="/pages/Home">Home</Link> 
+      <Link href="/pages/Products">Product</Link>
+
     </div>
   );
 }
