@@ -31,7 +31,7 @@
       "besoin": "2/5",
       "poils": "longs",
       "couleur": "sable",
-      "image": "https://apanimaux63.org/wp-content/uploads/2022/11/photo-120.jpeg",
+      "image": "https://images.ctfassets.net/denf86kkcx7r/34xqsOLARAnleIEyMre3CQ/97da0341c99a05fbaa2592f951ea0102/chien_le_plus_laid_du_monde?fm=webp&w=612",
       "description": "Petit mais courageux, Milo est toujours prêt à vous suivre partout."
     },
     {
@@ -101,7 +101,8 @@
       "besoin": "2/5",
       "poils": "courts",
       "couleur": "crème et brun",
-      "description": "Luna observe tout du haut de son arbre à chat."
+      "description": "Luna observe tout du haut de son arbre à chat.",
+      "image": "https://goodflair.com/app/uploads/2024/09/beautiful-bengal-cat.jpg"
     },
     {
       "id": 7,
@@ -117,7 +118,8 @@
       "besoin": "3/5",
       "poils": "longs",
       "couleur": "gris tigré",
-      "description": "Simba aime dormir au soleil et se faire brosser."
+      "description": "Simba aime dormir au soleil et se faire brosser.",
+      "image": "https://www.agria.fr/imagevault/publishedmedia/9vgy569fypmkernjg4x6/Orange_cat_laying_indoor.jpg"
     },
     {
       "id": 8,
@@ -133,7 +135,8 @@
       "besoin": "1/5",
       "poils": "doux",
       "couleur": "bleu-gris",
-      "description": "Misty adore la tranquillité et les coins douillets."
+      "description": "Misty adore la tranquillité et les coins douillets.",
+      "image": "https://www.assuropoil.fr/wp-content/uploads/2023/07/avoir-un-chat-sante.jpg"
     },
     {
       "id": 9,
@@ -149,7 +152,8 @@
       "besoin": "3/5",
       "poils": "courts",
       "couleur": "tigré",
-      "description": "Tom est un vrai aventurier de salon."
+      "description": "Tom est un vrai aventurier de salon.",
+      "image": "https://feelloo.com/wp-content/uploads/2019/10/jeune-chat-pexels-104827-900x598.jpeg"
     },
     {
       "id": 10,
@@ -165,7 +169,8 @@
       "besoin": "2/5",
       "poils": "très longs",
       "couleur": "blanc",
-      "description": "Choupette aime le luxe, la douceur et la routine."
+      "description": "Choupette aime le luxe, la douceur et la routine.",
+      "image": "https://cdn.onemars.net/sites/perfect-fit_fr_XDOtn_JAs8/image/large_perfect-fit-article-4_1681734605894_1685458146703.png"
     }
   ],
   "Reptiles": [
@@ -183,7 +188,8 @@
       "besoin": "1/5",
       "poils": "aucun",
       "couleur": "brun foncé",
-      "description": "Onyx reste immobile des heures, impressionnant et discret."
+      "description": "Onyx reste immobile des heures, impressionnant et discret.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Ball_python_lucy.JPG"
     },
     {
       "id": 12,
@@ -199,7 +205,8 @@
       "besoin": "2/5",
       "poils": "aucun",
       "couleur": "vert vif",
-      "description": "Iggy adore grimper sur les branches et se chauffer au soleil."
+      "description": "Iggy adore grimper sur les branches et se chauffer au soleil.",
+      "image": "https://monde-animal.ca/wp-content/uploads/grand-iguane-vert-aux-longues-griffes-pose-rocher-gris_493961-1646.jpg"
     },
     {
       "id": 13,
@@ -215,23 +222,25 @@
       "besoin": "2/5",
       "poils": "aucun",
       "couleur": "beige",
-      "description": "Spike aime les grillons et se dorer sous la lampe UV."
+      "description": "Spike aime les grillons et se dorer sous la lampe UV.",
+      "image": "https://media.sudouest.fr/11693318/1200x-1/image0000001-4.jpg"
     },
     {
       "id": 14,
-      "name": "Kaa",
+      "name": "Choupette",
       "race": "Boa constrictor",
       "age": 5,
       "gabarit": "grand",
       "logement": "appartement",
       "sexe": "mâle",
       "espece": "serpent",
-      "poids": 10,
+      "poids": 35,
       "sociabilite": "très calme",
       "besoin": "1/5",
       "poils": "aucun",
       "couleur": "marron et crème",
-      "description": "Kaa impressionne par sa taille mais reste docile."
+      "description": "Choupette impressionne par sa taille mais reste docile.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Boa_constrictor_Gallion_Guyane.jpg"
     },
     {
       "id": 15,
@@ -247,7 +256,8 @@
       "besoin": "1/5",
       "poils": "aucun",
       "couleur": "jaune et noir",
-      "description": "Zelda est rapide et adore se cacher dans les recoins."
+      "description": "Zelda est rapide et adore se cacher dans les recoins.",
+      "image": "https://www.padiparc.com/media/images/catalog/article/355/big/77.jpg"
     }
   ],
   "Rongeur": [
@@ -265,7 +275,8 @@
       "besoin": "2/5",
       "poils": "mi-longs",
       "couleur": "marron et blanc",
-      "description": "Chico siffle de bonheur quand il entend des pas."
+      "description": "Chico siffle de bonheur quand il entend des pas.",
+      "image": "https://cdn2.animal-valley.com/media/wysiwyg/cochon-d-inde-guide-pratique-conseils-alimentation-choix-cage.jpg"
     },
     {
       "id": 17,
@@ -281,7 +292,8 @@
       "besoin": "1/5",
       "poils": "courts",
       "couleur": "doré",
-      "description": "Lily adore courir dans sa roue et fouiller la litière."
+      "description": "Lily adore courir dans sa roue et fouiller la litière.",
+      "image": "https://www.lesitedesanimaux.com/wp-content/uploads/2023/09/hamster-dore.jpg"
     },
     {
       "id": 18,
@@ -297,7 +309,8 @@
       "besoin": "2/5",
       "poils": "courts",
       "couleur": "gris",
-      "description": "Nico est intelligent et apprend vite des tours."
+      "description": "Nico est intelligent et apprend vite des tours.",
+      "image": "https://image.jimcdn.com/app/cms/image/transf/dimension=500x10000:format=jpg/path/se7c95a3916d5de54/image/i8838b8194d884ff9/version/1619853880/photo-d-un-petit-rat-domestique-qui-mange-une-graine.jpg"
     },
     {
       "id": 19,
@@ -313,7 +326,8 @@
       "besoin": "1/5",
       "poils": "courts",
       "couleur": "brun clair",
-      "description": "Canelle est active et adore creuser des tunnels."
+      "description": "Canelle est active et adore creuser des tunnels.",
+      "image": "https://lemagdesanimaux.ouest-france.fr/images/dossiers/2018-06/gerbille-070641.jpg"
     },
     {
       "id": 20,
@@ -329,7 +343,8 @@
       "besoin": "2/5",
       "poils": "très doux",
       "couleur": "gris perle",
-      "description": "Biscuit aime se rouler dans le sable et rester propre."
+      "description": "Biscuit aime se rouler dans le sable et rester propre.",
+      "image": "https://supremepetfoods.fr/wp-content/uploads/2015/08/iStock-1088884774-1200px.jpg.webp"
     }
   ]
 }
