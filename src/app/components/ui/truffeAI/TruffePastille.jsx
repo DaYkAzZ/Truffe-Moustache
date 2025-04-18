@@ -20,7 +20,7 @@ export default function TruffePastille({ onOpen, onResult }) {
               setPopUp(true);
               if (onOpen) onOpen();
             }}
-            className="bg-white rounded-full border-2 border-[#FFBC11] p-1 shadow-lg hover:scale-105 transition-transform"
+            className="bg-white rounded-full border-2 border-purple-500 p-1 shadow-lg hover:scale-105 transition-transform"
           >
             <Image
               src="/images/icons/truffe.png"

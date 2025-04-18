@@ -34,9 +34,9 @@ export default function Home() {
       <div className="flex items-center justify-between my-6">
         <h1 className="text-3xl font-bold">J'adopte un compagnon</h1>
         <Image
-          src="/images/icons/petsprint-active.svg"
-          width={40}
-          height={40}
+          src="/images/brand/logo.png"
+          width={50}
+          height={50}
           alt="Pets print"
         />
       </div>

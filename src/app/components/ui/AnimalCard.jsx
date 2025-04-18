@@ -30,52 +30,33 @@ export default function AnimalCard({
   }
 
   return (
-    <div>
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       {animals.map((animal, index) => (
         <div
           key={`${animal.id}-${index}`}
-          className="bg-white shadow-sm p-5 my-4 rounded-lg"
+          className="bg-white rounded-2xl overflow-hidden shadow-md transition-transform hover:shadow-lg"
         >
-          <div className="flex flex-col items-center justify-between">
-            <div className="object-contain">
-              {/* <Image src={animal.image} width={150} height={150} alt="image" /> */}
-            </div>
-            <div className="flex items-center justify-between w-full mt-4">
-              <h2 className="text-lg font-bold">{animal.name}</h2>
-              <div className="flex flex-wrap">
-                <span className="mr-2 px-2 py-1 bg-[#FFBC11] text-white rounded-full text-sm">
-                  {animal.race}
-                </span>
-                <span className="mr-2 px-2 py-1 bg-[#FFBC11] text-white rounded-full text-sm">
-                  {animal.age} ans
-                </span>
-              </div>
-              <div className="flex items-center">
-                <Image
-                  src={
-                    animal.espece === "chien"
-                      ? "/images/icons/dog.svg"
-                      : animal.espece === "chat"
-                      ? "/images/icons/cat.svg"
-                      : [
-                          "hamster",
-                          "cochon d'inde",
-                          "rat",
-                          "souris",
-                          "chinchilla",
-                        ].includes(animal.espece)
-                      ? "/images/icons/rabbit.svg"
-                      : ["lézard", "serpent"].includes(animal.espece)
-                      ? "/images/icons/snake.svg"
-                      : "/images/icons/truffe.png"
-                  }
-                  width={40}
-                  height={40}
-                  alt="espece"
-                />
+          {/* Image en haut occupant tout l'espace disponible */}
+          <div className="relative w-full h-48 overflow-hidden">
+            <Image
+              src={animal.image}
+              fill
+              style={{ objectFit: "cover" }}
+              alt={`Photo de ${animal.name}`}
+              className="transition-transform hover:scale-105"
+            />
+          </div>
+
+          {/* Contenu en bas */}
+          <div className="p-4">
+            {/* Section du nom et des tags */}
+            <div className="flex flex-col space-y-3">
+              {/* Nom de l'animal */}
+              <div className="flex justify-between items-center">
+                <h2 className="text-xl font-bold">{animal.name}</h2>
                 <button
                   onClick={() => toggleFavorite(animal)}
-                  className="ml-2"
+                  className="focus:outline-none"
                   aria-label={
                     isFavorite(animal.id)
                       ? "Retirer des favoris"
@@ -112,6 +93,44 @@ export default function AnimalCard({
                     </svg>
                   )}
                 </button>
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2">
+                <span className="px-4 py-1.5 bg-[#FFBC11] text-white rounded-full text-sm font-medium">
+                  {animal.race}
+                </span>
+                <span className="px-4 py-1.5 bg-[#FFBC11] text-white rounded-full text-sm font-medium">
+                  {animal.age} ans
+                </span>
+              </div>
+            </div>
+
+            {/* Icône de l'espèce */}
+            <div className="flex justify-end">
+              <div className="bg-[#FFBC11] rounded-full p-2 flex items-center justify-center">
+                <Image
+                  src={
+                    animal.espece === "chien"
+                      ? "/images/icons/dog.svg"
+                      : animal.espece === "chat"
+                      ? "/images/icons/cat.svg"
+                      : [
+                          "hamster",
+                          "cochon d'inde",
+                          "rat",
+                          "souris",
+                          "chinchilla",
+                        ].includes(animal.espece)
+                      ? "/images/icons/rabbit.svg"
+                      : ["lézard", "serpent"].includes(animal.espece)
+                      ? "/images/icons/snake.svg"
+                      : "/images/icons/truffe.png"
+                  }
+                  width={24}
+                  height={24}
+                  alt="espece"
+                />
               </div>
             </div>
           </div>
