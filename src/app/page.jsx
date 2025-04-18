@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Page() {
   const [step, setStep] = useState(0);
@@ -16,7 +16,8 @@ export default function Page() {
       bgColor: "#FFBC11",
     },
     {
-      title: "Salut toi !\nMoi c'est Moustaches, ton guide poilu préféré.\nBienvenue sur notre appli d'adoption !",
+      title:
+        "Salut toi !\nMoi c'est Moustaches, ton guide poilu préféré.\nBienvenue sur notre appli d'adoption !",
       text: "Ici, tu peux rencontrer ton futur compagnon à plumes, à poils ou à écailles...Quel que soit ton style, on t'aide à trouver l'animal qui te correspond vraiment.",
       image: "/images/icons/onboardingChat.svg",
       bgColor: "#FFBC11",
@@ -45,7 +46,7 @@ export default function Page() {
     if (step < pages.length - 1) {
       setStep(step + 1);
     } else {
-      router.push('/home');
+      router.push("/pages/Home");
     }
   };
 
@@ -79,8 +80,8 @@ export default function Page() {
         onClick={handleNext}
         className="z-10 mt-auto mb-10 bg-white text-black px-6 py-3 rounded-full font-semibold shadow-md"
       >
-        {step === pages.length - 1 ? 'Commencer' : 'Suivant'}
+        {step === pages.length - 1 ? "Commencer" : "Suivant"}
       </button>
     </div>
   );
-
+}
