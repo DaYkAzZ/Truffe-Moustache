@@ -1,0 +1,44 @@
+{
+  "cours_dressage": [
+    {
+      "id": 1,
+      "title": "Obéissance de base",
+      "description": "Apprenez à votre chien les ordres fondamentaux comme 'assis', 'couché' et 'au pied'. Idéal pour instaurer une relation de confiance.",
+      "duration": "4 semaines",
+      "type_animal": "Chien",
+      "level": "Débutant"
+    },
+    {
+      "id": 2,
+      "title": "Toilettage et manipulation",
+      "description": "Initiez votre chat à la manipulation en douceur (griffes, brossage, transport) pour éviter le stress lors des soins.",
+      "duration": "2 semaines",
+      "type_animal": "Chat",
+      "level": "Intermédiaire"
+    },
+    {
+      "id": 3,
+      "title": "Habituation à la main",
+      "description": "Apprenez à vos petits compagnons à ne pas craindre la main humaine. Cours progressif basé sur le renforcement positif.",
+      "duration": "10 jours",
+      "type_animal": "Rongeur",
+      "level": "Débutant"
+    },
+    {
+      "id": 4,
+      "title": "Manipulation sécurisée",
+      "description": "Formation pour manipuler votre reptile sans stress ni danger. Convient aux lézards, serpents et tortues.",
+      "duration": "1 semaine",
+      "type_animal": "Reptile",
+      "level": "Débutant"
+    },
+    {
+      "id": 5,
+      "title": "Socialisation avancée",
+      "description": "Travaillez la socialisation de votre animal avec d'autres animaux et humains dans des contextes variés.",
+      "duration": "6 semaines",
+      "type_animal": "Chien, Chat",
+      "level": "Avancé"
+    }
+  ]
+}
