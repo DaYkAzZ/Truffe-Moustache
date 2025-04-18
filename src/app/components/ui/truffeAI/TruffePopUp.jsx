@@ -65,7 +65,7 @@ export default function TruffePopUp({ onClose, onResult }) {
   return (
     <AnimatePresence>
       {isPopUpVisible && (
-        <div className="fixed inset-0 z-50 flex items-end justify-center">
+        <div className="fixed inset-0 z-100 flex items-end justify-center">
           {/* Fond sombre */}
           <motion.div
             className="absolute inset-0 bg-opacity-40 backdrop-blur-sm shadow-sm"

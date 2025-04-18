@@ -28,13 +28,7 @@ export default function AnimalCard({
   }
 
   if (animals.length === 0) {
-    return (
-      <div className="text-center py-4">
-        {setTimeout(() => {
-          return <div>Aucun animal trouvé.</div>;
-        }, 1000)}
-      </div>
-    );
+    return <div>Aucun animal trouvé.</div>;
   }
 
   return (
