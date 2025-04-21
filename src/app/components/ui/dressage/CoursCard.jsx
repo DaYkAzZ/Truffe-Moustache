@@ -10,7 +10,7 @@ export default function CoursCard() {
       {cours.cours_dressage.map((item) => {
         return (
           <Link href={`/pages/Cours?id=${item.id}`} key={item.id}>
-            <div className="my-2 bg-[#FFBC11] text-white p-5 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+            <div className="my-4 bg-white text-black p-6 rounded-lg border-2 border-[#FFBC11]">
               <div className="flex flex-row justify-between items-center">
                 <div>
                   <Image

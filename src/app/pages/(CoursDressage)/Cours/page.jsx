@@ -81,8 +81,15 @@ export default function Cours() {
 
       {/* Contenu du cours */}
       <div className="mx-5">
-        <div className="bg-[#FFBC11] text-white p-5 rounded-lg shadow-md mb-6">
-          <div className="flex items-center mb-4">
+        <div className="bg-white text-white p-5 rounded-lg shadow-sm mb-6 border-2 border-[#FFBC11]">
+          <Image
+            src={course.image}
+            width={300}
+            height={300}
+            className="object-cover rounded-lg mb-4"
+            alt="image"
+          />
+          <div className="flex items-center mb-4 p-2 rounded-2xl bg-[#FFBC11] backdrop-blur-2xl">
             <Image
               src={getAnimalIcon(course.type_animal)}
               width={60}

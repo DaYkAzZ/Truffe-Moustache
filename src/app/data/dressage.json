@@ -6,7 +6,8 @@
       "description": "Apprenez à votre chien les ordres fondamentaux comme 'assis', 'couché' et 'au pied'. Idéal pour instaurer une relation de confiance.",
       "duration": "4 semaines",
       "type_animal": "Chien",
-      "level": "Débutant"
+      "level": "Débutant",
+      "image": "https://www.cynodo.com/media/cyno/image/a9e66cea-70ba-4484-b9c2-5a7394dfcb60.jpeg"
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "description": "Initiez votre chat à la manipulation en douceur (griffes, brossage, transport) pour éviter le stress lors des soins.",
       "duration": "2 semaines",
       "type_animal": "Chat",
-      "level": "Intermédiaire"
+      "level": "Intermédiaire",
+      "image": "https://arboricat.com/wp-content/uploads/2024/12/Tout-savoir-sur-la-profession-de-toiletteur-pour-chats-1024x683.png"
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "description": "Apprenez à vos petits compagnons à ne pas craindre la main humaine. Cours progressif basé sur le renforcement positif.",
       "duration": "10 jours",
       "type_animal": "Rongeur",
-      "level": "Débutant"
+      "level": "Débutant",
+      "image": "https://votre-expert-anti-nuisibles.com/blog/upload/block/images/souris-laboratoire.jpg"
     },
     {
       "id": 4,
@@ -30,7 +33,8 @@
       "description": "Formation pour manipuler votre reptile sans stress ni danger. Convient aux lézards, serpents et tortues.",
       "duration": "1 semaine",
       "type_animal": "Reptile",
-      "level": "Débutant"
+      "level": "Débutant",
+      "image": "https://france3-regions.francetvinfo.fr/image/A8lSmysXEo2mwqyas1IvH9RPWVA/1549x848/regions/2023/10/22/raphaelle-6534ad7c2dd70184895821.png"
     },
     {
       "id": 5,
@@ -38,7 +42,8 @@
       "description": "Travaillez la socialisation de votre animal avec d'autres animaux et humains dans des contextes variés.",
       "duration": "6 semaines",
       "type_animal": "Chien, Chat",
-      "level": "Avancé"
+      "level": "Avancé",
+      "image": "https://evolutioncanine.ca/wp-content/uploads/2017/01/cohabitation-chien-chat.jpg"
     }
   ]
 }
