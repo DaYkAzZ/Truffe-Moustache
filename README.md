@@ -1,56 +1,137 @@
 # Truffe Moustache
 
-Welcome to the **Truffe Moustache** repository! This project is designed to [briefly describe the purpose of your project].
+## Description
+
+Truffe Moustache est une application web dédiée aux propriétaires d'animaux de compagnie. Elle propose des ressources, des cours de dressage et des fonctionnalités pour prendre soin de vos compagnons à quatre pattes.
+
+## Fonctionnalités
+
+### Accueil
+
+- Vue d'ensemble des dernières actualités et ressources
+- Accès rapide aux différentes sections de l'application
+
+### Niche
+
+- Espace personnalisé pour stocker les informations de vos animaux
+- Suivi des activités et des soins pour chaque animal
+
+### Cours de Dressage
+
+- Catalogue de cours pour différents types d'animaux (chiens, chats, rongeurs, reptiles)
+- Accès aux détails des cours incluant la description, la durée, le niveau et le type d'animal
+- Interface interactive pour suivre les cours de dressage
+
+## Technologies Utilisées
+
+- **Next.js** - Framework React pour le développement frontend
+- **Tailwind CSS** - Pour le style et la mise en page
+- **Framer Motion** - Pour les animations et transitions
+- **JSON** - Pour le stockage des données
+
+## Structure du Projet
+
+```
+truffe-moustache/
+├── public/
+│   ├── images/
+│   │   ├── brand/
+│   │   └── icons/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── navigation/
+│   │   │   └── ui/
+│   │   │       └── dressage/
+│   │   ├── context/
+│   │   ├── data/
+│   │   │   └── dressage.json
+│   │   └── pages/
+│   │       ├── (CoursDressage)/
+│   │       │   ├── Cours/
+│   │       │   └── DressageGlobal/
+│   │       ├── Home/
+│   │       └── Niche/
+│   └── globals.css
+├── package.json
+└── README.md
+```
 
 ## Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/truffe-moustache.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd truffe-moustache
-   ```
-3. Install dependencies:
-   ```bash
-   [Insert installation command, e.g., npm install]
-   ```
+1. Cloner le dépôt
 
-## Usage
+```bash
+git clone https://github.com/DaYkAzZ/truffe-moustache.git
+```
 
-1. Run the application:
-   ```bash
-   [Insert command to start the application, e.g., npm start]
-   ```
-2. Open your browser and navigate to:
-   ```
-   http://localhost:[port]
-   ```
+2. Installer les dépendances
 
-## Contributing
+```bash
+cd truffe-moustache
+npm install
+```
 
-Contributions are welcome! Please follow these steps:
+3. Lancer le serveur de développement
 
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m "Add feature-name"
-   ```
-4. Push to your branch:
-   ```bash
-   git push origin feature-name
-   ```
-5. Open a pull request.
+```bash
+npm run dev
+```
+
+4. Ouvrir `http://localhost:3000` dans votre navigateur
+
+## Utilisation
+
+### Navigation
+
+L'application dispose d'une barre de navigation en bas de l'écran avec trois sections principales :
+
+- **Accueil** - Représenté par l'icône de pattes
+- **Niche** - Représenté par l'icône de maison
+- **Cours de Dressage** - Représenté par l'icône de livre/cours
+
+### Consulter les Cours de Dressage
+
+1. Cliquez sur l'icône de cours dans la barre de navigation
+2. Parcourez la liste des cours disponibles
+3. Cliquez sur un cours pour voir ses détails
+4. Utilisez le bouton "Retour" pour revenir à la liste des cours
+
+## Développement
+
+### Ajout de Nouveaux Cours
+
+Pour ajouter de nouveaux cours de dressage, modifiez le fichier `src/app/data/dressage.json` en suivant la structure existante :
+
+```json
+{
+  "cours_dressage": [
+    {
+      "id": [numéro_unique],
+      "title": "Titre du cours",
+      "description": "Description détaillée du cours",
+      "duration": "Durée du cours",
+      "type_animal": "Type d'animal concerné",
+      "level": "Niveau de difficulté"
+    }
+  ]
+}
+```
+
+### Personnalisation des Styles
+
+Les styles sont principalement gérés via Tailwind CSS. Pour modifier l'apparence de l'application, vous pouvez ajuster les classes dans les fichiers JSX ou modifier le fichier de configuration Tailwind (`tailwind.config.js`).
+
+## Contribution
+
+Les contributions sont les bienvenues ! Pour contribuer :
+
+1. Forker le projet
+2. Créer une branche pour votre fonctionnalité (`git checkout -b feature/ma-fonctionnalite`)
+3. Commit vos changements (`git commit -m 'Ajout de ma fonctionnalité'`)
+4. Push vers la branche (`git push origin feature/ma-fonctionnalite`)
+5. Ouvrir une Pull Request
 
 ## License
 
-This project is licensed under the [Insert License Name] License. See the [LICENSE](./LICENSE) file for details.
-
-## Contact
-
-For questions or feedback, please contact [your email or other contact info].
+Ce projet est sous licence [MIT](LICENSE).
