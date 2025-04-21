@@ -97,41 +97,6 @@ L'application dispose d'une barre de navigation en bas de l'écran avec trois se
 3. Cliquez sur un cours pour voir ses détails
 4. Utilisez le bouton "Retour" pour revenir à la liste des cours
 
-## Développement
-
-### Ajout de Nouveaux Cours
-
-Pour ajouter de nouveaux cours de dressage, modifiez le fichier `src/app/data/dressage.json` en suivant la structure existante :
-
-```json
-{
-  "cours_dressage": [
-    {
-      "id": [numéro_unique],
-      "title": "Titre du cours",
-      "description": "Description détaillée du cours",
-      "duration": "Durée du cours",
-      "type_animal": "Type d'animal concerné",
-      "level": "Niveau de difficulté"
-    }
-  ]
-}
-```
-
-### Personnalisation des Styles
-
-Les styles sont principalement gérés via Tailwind CSS. Pour modifier l'apparence de l'application, vous pouvez ajuster les classes dans les fichiers JSX ou modifier le fichier de configuration Tailwind (`tailwind.config.js`).
-
-## Contribution
-
-Les contributions sont les bienvenues ! Pour contribuer :
-
-1. Forker le projet
-2. Créer une branche pour votre fonctionnalité (`git checkout -b feature/ma-fonctionnalite`)
-3. Commit vos changements (`git commit -m 'Ajout de ma fonctionnalité'`)
-4. Push vers la branche (`git push origin feature/ma-fonctionnalite`)
-5. Ouvrir une Pull Request
-
 ## License
 
 Ce projet est sous licence [MIT](LICENSE).
