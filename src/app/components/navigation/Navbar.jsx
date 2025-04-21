@@ -70,8 +70,9 @@ export default function Navbar() {
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
         >
-          <Link href="/pages/CoursDressage">
-            {pathname === "/pages/CoursDressage" ? (
+          <Link href="/pages/DressageGlobal">
+            {pathname === "/pages/DressageGlobal" ||
+            pathname.includes("/pages/DressageGlobal") ? (
               <Image
                 src="/images/icons/cours-active.svg" // Version orange de l'icône
                 width={32}
