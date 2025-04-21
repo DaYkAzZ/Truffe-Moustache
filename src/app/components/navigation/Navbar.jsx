@@ -11,7 +11,7 @@ export default function Navbar() {
 
   return (
     <motion.div
-      className="bg-white fixed bottom-0 left-0 w-screen p-5 shadow-lg"
+      className="bg-white fixed bottom-0 left-0 w-screen p-5 border-t-2 border-[#FFBC11] rounded-t-3xl z-50"
       initial={{ y: 100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
@@ -70,8 +70,9 @@ export default function Navbar() {
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
         >
-          <Link href="/pages/CoursDressage">
-            {pathname === "/pages/CoursDressage" ? (
+          <Link href="/pages/DressageGlobal">
+            {pathname === "/pages/DressageGlobal" ||
+            pathname.includes("/pages/DressageGlobal") ? (
               <Image
                 src="/images/icons/cours-active.svg" // Version orange de l'icône
                 width={32}

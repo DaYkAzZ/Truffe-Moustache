@@ -30,7 +30,7 @@ export default function FilterBar() {
         className="rounded-3xl border-gray-400 border-1 p-2 m-1 cursor-pointer"
         onClick={() => openFilterWithTab("size")}
       >
-        Gabarie
+        Gabarit
       </div>
       <div
         className="rounded-3xl border-gray-400 border-1 p-2 m-1 cursor-pointer"
