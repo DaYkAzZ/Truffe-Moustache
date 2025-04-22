@@ -132,7 +132,13 @@ function CourseContent() {
 // Composant principal qui utilise Suspense
 export default function Cours() {
   return (
-    <Suspense fallback={<div className="flex justify-center items-center h-screen">Chargement...</div>}>
+    <Suspense
+      fallback={
+        <div className="flex justify-center items-center h-screen">
+          Chargement...
+        </div>
+      }
+    >
       <CourseContent />
     </Suspense>
   );

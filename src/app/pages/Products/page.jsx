@@ -1,10 +1,11 @@
 "use client";
 
-import React, { memo } from "react";
+import React, { memo, Suspense } from "react";
 import ProductDescription from "@/app/components/ui/ProductDescription";
 import { useSearchParams } from "next/navigation";
 
-const Page = memo(() => {
+// Composant qui utilise useSearchParams
+const ProductContent = memo(() => {
   const searchParams = useSearchParams();
   const category = searchParams.get("category") || "Chiens";
   const id = parseInt(searchParams.get("id") || "1", 10);
@@ -15,5 +16,14 @@ const Page = memo(() => {
     </div>
   );
 });
+
+// Composant principal qui utilise Suspense
+const Page = () => {
+  return (
+    <Suspense fallback={<div className="flex justify-center items-center h-screen">Chargement...</div>}>
+      <ProductContent />
+    </Suspense>
+  );
+};
 
 export default Page;
