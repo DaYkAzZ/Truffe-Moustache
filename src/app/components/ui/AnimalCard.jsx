@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import data from "../../data/data.json";
+import data from "../../data/data_100.json";
 import Image from "next/image";
 import { useFavorites } from "../../context/FavoritesContext";
 import { useRouter } from "next/navigation";
@@ -58,7 +58,7 @@ export default function AnimalCard({
               style={{ objectFit: "cover" }}
               alt={`Photo de ${animal.name}`}
               className="transition-transform hover:scale-105"
-              unoptimized={animal.image.startsWith('https://')}
+              unoptimized={animal.image.startsWith("https://")}
             />
           </div>
 

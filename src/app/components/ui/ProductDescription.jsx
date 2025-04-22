@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import data from "../../data/data.json";
+import data from "../../data/data_100.json";
 // Removed direct import of the video file
 
 const ProductDescription = ({ category, id }) => {
@@ -110,8 +110,14 @@ const ProductDescription = ({ category, id }) => {
           </span>
         </div>
       </div>
-      <div className=" ml-4 inline-flex items-center justify-center p-4 h-[50px] rounded-full border border-[#FFBC11] bg-white text-black mt-6">
-        <span className="text-lg">{animal.sociabilite}</span>
+      <div className="m-2 inline-flex items-center justify-center p-4 h-[50px] rounded-full border border-[#FFBC11] bg-white text-black mt-6">
+        <span className="text-md">{animal.tags[0]}</span>
+      </div>
+      <div className="m-2 inline-flex items-center justify-center p-4 h-[50px] rounded-full border border-[#FFBC11] bg-white text-black mt-6">
+        <span className="text-md">{animal.tags[1]}</span>
+      </div>
+      <div className="m-2 inline-flex items-center justify-center p-4 h-[50px] rounded-full border border-[#FFBC11] bg-white text-black mt-6">
+        <span className="text-md">{animal.tags[2]}</span>
       </div>
 
       {/* video */}
@@ -136,7 +142,9 @@ const ProductDescription = ({ category, id }) => {
       <div className="px-4 flex flex-col justify-center w-full mt-15">
         <div className="flex items-center mb-8">
           <img src="/images/icons/calendar.svg" alt="calendly" />
-          <span className="px-4 font-semibold text-lg">Voir {animal.name}</span>
+          <span className="px-4 font-semibold text-lg">
+            Rencontrer {animal.name}
+          </span>
         </div>
         <iframe
           className="w-[350px] h-[500px]"

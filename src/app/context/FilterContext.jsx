@@ -34,9 +34,69 @@ export function FilterProvider({ children }) {
     setIsFilterOpen(false);
   };
 
+  // État pour stocker les animaux filtrés
+  const [filteredAnimals, setFilteredAnimals] = useState([]);
+  
   // Fonction pour appliquer les filtres
   const applyFilters = () => {
-    // Logique pour appliquer les filtres
+    // Importer les données
+    const data = require('../data/data.json');
+    
+    // Commencer avec tous les animaux
+    let allAnimals = [];
+    
+    // Si une espèce spécifique est sélectionnée, utiliser cette catégorie
+    if (species) {
+      const categoryKey = 
+        species === 'dog' ? 'Chiens' : 
+        species === 'cat' ? 'Chats' : 
+        species === 'reptile' ? 'Reptiles' : 
+        species === 'rodent' ? 'Rongeur' : null;
+      
+      if (categoryKey && data[categoryKey]) {
+        allAnimals = [...data[categoryKey]];
+      }
+    } else {
+      // Sinon prendre tous les animaux
+      Object.values(data).forEach(category => {
+        allAnimals = [...allAnimals, ...category];
+      });
+    }
+    
+    // Appliquer les filtres
+    const filtered = allAnimals.filter(animal => {
+      // Filtre par race
+      if (breed && animal.race !== breed) return false;
+      
+      // Filtre par âge
+      if (age && animal.age > age[1]) return false;
+      
+      // Filtre par sexe
+      if (gender) {
+        const genderMatch = 
+          gender === 'male' ? animal.sexe === 'mâle' : 
+          gender === 'female' ? animal.sexe === 'femelle' : true;
+        if (!genderMatch) return false;
+      }
+      
+      // Filtre par taille/gabarit
+      if (size) {
+        const sizeMatch = 
+          size === 'xs' ? animal.gabarit === 'très petit' : 
+          size === 's' ? animal.gabarit === 'petit' : 
+          size === 'm' ? animal.gabarit === 'moyen' : 
+          size === 'l' ? animal.gabarit === 'grand' : 
+          size === 'xl' ? animal.gabarit === 'très grand' : true;
+        if (!sizeMatch) return false;
+      }
+      
+      return true;
+    });
+    
+    // Mettre à jour l'état avec les animaux filtrés
+    setFilteredAnimals(filtered);
+    
+    // Fermer la popup
     closeFilter();
   };
 
@@ -69,6 +129,8 @@ export function FilterProvider({ children }) {
     setGender,
     size,
     setSize,
+    filteredAnimals,
+    setFilteredAnimals
   };
 
   return (
