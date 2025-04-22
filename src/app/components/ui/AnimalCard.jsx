@@ -53,7 +53,7 @@ export default function AnimalCard({
           {/* Image en haut occupant tout l'espace disponible */}
           <div className="relative w-full h-48 overflow-hidden">
             <Image
-              src={animal.image}
+              src={animal.image || "/images/default-placeholder.png"}
               fill
               style={{ objectFit: "cover" }}
               alt={`Photo de ${animal.name}`}
