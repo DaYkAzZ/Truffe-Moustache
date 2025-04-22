@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import Navbar from "@/app/components/navigation/Navbar";
 import coursData from "@/app/data/dressage.json";
 import Link from "next/link";
 
-export default function Cours() {
+// Composant qui utilise useSearchParams
+function CourseContent() {
   const searchParams = useSearchParams();
   const courseId = searchParams.get("id");
   const [course, setCourse] = useState(null);
@@ -125,5 +126,14 @@ export default function Cours() {
         </button>
       </div>
     </div>
+  );
+}
+
+// Composant principal qui utilise Suspense
+export default function Cours() {
+  return (
+    <Suspense fallback={<div className="flex justify-center items-center h-screen">Chargement...</div>}>
+      <CourseContent />
+    </Suspense>
   );
 }

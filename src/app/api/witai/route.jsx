@@ -2,8 +2,16 @@ import path from "path";
 import fs from "fs";
 
 // Résolution correcte du chemin du fichier de données
-const dataPath = path.join(process.cwd(), "src", "app", "data", "data.json");
-const data = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
+let data;
+try {
+  const dataPath = path.join(process.cwd(), "src", "app", "data", "data.json");
+  data = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
+} catch (error) {
+  console.error("Erreur lors du chargement des données:", error);
+  // Fallback vers un import direct si le chemin pose problème
+  const dataImport = require("../../data/data.json");
+  data = dataImport;
+}
 
 export async function POST(request) {
   try {

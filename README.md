@@ -72,13 +72,44 @@ cd truffe-moustache
 npm install
 ```
 
-3. Lancer le serveur de développement
+3. Configurer les variables d'environnement
+
+```bash
+cp .env.example .env
+# Éditez le fichier .env et ajoutez votre clé Wit.ai
+```
+
+4. Lancer le serveur de développement
 
 ```bash
 npm run dev
 ```
 
-4. Ouvrir `http://localhost:3000` dans votre navigateur
+5. Ouvrir `http://localhost:3000` dans votre navigateur
+
+## Déploiement sur Vercel
+
+1. Créez un compte sur [Vercel](https://vercel.com/) si ce n'est pas déjà fait
+
+2. Installez le CLI Vercel (optionnel)
+
+```bash
+npm i -g vercel
+```
+
+3. Déployez votre application
+
+```bash
+vercel
+# ou utilisez le déploiement via GitHub en connectant votre répertoire à Vercel
+```
+
+4. Configurez la variable d'environnement `WIT_AI_TOKEN` dans les paramètres du projet Vercel
+   - Allez dans le tableau de bord Vercel > Votre projet > Settings > Environment Variables
+   - Ajoutez la variable `WIT_AI_TOKEN` avec votre clé Wit.ai
+   - Cliquez sur "Save" puis redéployez si nécessaire
+
+5. Votre application est déployée et l'API Wit.ai fonctionne correctement!
 
 ## Utilisation
 
