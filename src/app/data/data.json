@@ -2,20 +2,20 @@
   "Chiens": [
     {
       "id": 1,
-      "name": "Rex",
+      "name": "Scoubie",
       "race": "Berger Allemand",
-      "age": 5,
-      "gabarit": "grand",
+      "age": 4,
+      "gabarit": "moyen",
       "logement": "maison",
-      "sexe": "mâle",
+      "sexe": "femelle",
       "espece": "chien",
-      "poids": 35,
+      "poids": 12,
       "sociabilite": "amis avec tous",
       "besoin": "4/5",
       "poils": "courts",
       "couleur": "brun et noir",
-      "description": "Rex adore courir dans le jardin et garde la maison comme un pro.",
-      "image": "https://lemagduchien.ouest-france.fr/images/dossiers/2021-01/adopter-chien-paris-071359.jpg"
+      "description": "Scoubie adore courir dans le jardin et garde la maison comme un pro.",
+      "image": "/data/scoubie.jpeg"
     },
     {
       "id": 2,

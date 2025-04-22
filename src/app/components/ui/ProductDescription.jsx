@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import data from "../../data/data.json";
+// Removed direct import of the video file
 
 const ProductDescription = ({ category, id }) => {
   const [animal, setAnimal] = useState(null);
@@ -111,6 +112,24 @@ const ProductDescription = ({ category, id }) => {
       </div>
       <div className=" ml-4 inline-flex items-center justify-center p-4 h-[50px] rounded-full border border-[#FFBC11] bg-white text-black mt-6">
         <span className="text-lg">{animal.sociabilite}</span>
+      </div>
+
+      {/* video */}
+      <div className="flex px-4 mt-8 items-center">
+        <div>
+          <img src="/images/icons/present.svg" alt="pet" />
+        </div>
+        <div>
+          <span className="px-4 font-semibold text-lg mt-8">
+            Présentation de {animal.name}
+          </span>
+        </div>
+      </div>
+      <div className="px-4">
+        <video width="370" height="240" controls>
+          <source src="/videos/presentation.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       {/* Calendly */}

@@ -58,6 +58,7 @@ export default function AnimalCard({
               style={{ objectFit: "cover" }}
               alt={`Photo de ${animal.name}`}
               className="transition-transform hover:scale-105"
+              unoptimized={animal.image.startsWith('https://')}
             />
           </div>
 
